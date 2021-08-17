@@ -6,16 +6,31 @@
     <title>Rocky hana works</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-
+<link href="https://ugc-creative.com/ugc/css/api_reviews/embed.css" rel="stylesheet">
 
   </head>
   <body style="background: #999">
+    <span class="fs-c-productNumber__number"></span>
 
     
-<div class="ugc-slider-wrapper" style="overflow:hidden;width:100%;">
-<iframe class="ugc-slider" src="https://st.ugc-creative.com/ugc/api/slider?qid=cf02f3d411c7f95fc504f9230c654e95"
-  scrolling="no" frameborder="no" allowtransparency="true" style="overflow:hidden;width:97vw;max-width:97vw;height:100%;border:none;"></iframe>
-</div>
+<div id="UgcCreativeReviewArea"></div>
+    
+    <script src="https://ugc-creative.com/ugc/js/api_reviews/embed.js"></script>
+    <script>
+new ugcReview({
+    user_id: '1',
+    user_qid: 'f93c2dd966c3c2a62f616e7ae12b49312e81bb65a49aeb69c36b1a021b41c964',
+  },
+  {
+    get_from_class: true,
+    id_class_name: 'fs-c-productNumber__number',
+    get_all_review: true
+  },
+  'https://ugc-creative.com',
+  function(){
+  }
+)
+</script>
 
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.7.0/sweetalert2.min.css">
