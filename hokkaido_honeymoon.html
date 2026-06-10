@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>北海道新婚旅行 ♡ akari to masato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF9F4;
+    --sakura:#F8B9C5;
+    --sakura-deep:#E8849B;
+    --lavender:#B9A7D8;
+    --lavender-soft:#EFEAF8;
+    --leaf:#9CC5A1;
+    --ink:#6B5560;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Zen Maru Gothic',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    padding-bottom:80px;
+  }
+  /* ===== ヘッダー ===== */
+  header{
+    text-align:center;
+    padding:56px 20px 36px;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(248,185,197,.35) 0 90px, transparent 90px),
+      radial-gradient(circle at 88% 30%, rgba(185,167,216,.30) 0 110px, transparent 110px),
+      radial-gradient(circle at 75% 85%, rgba(156,197,161,.22) 0 70px, transparent 70px),
+      var(--cream);
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.35em;
+    color:var(--sakura-deep);
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Kiwi Maru',serif;
+    font-size:clamp(26px,6vw,40px);
+    color:var(--ink);
+    font-weight:500;
+  }
+  h1 .heart{color:var(--sakura-deep);}
+  .names{
+    display:inline-block;
+    margin-top:14px;
+    background:var(--card);
+    border:2px dashed var(--sakura);
+    border-radius:999px;
+    padding:8px 26px;
+    font-family:'Kiwi Maru',serif;
+    font-size:18px;
+    color:var(--sakura-deep);
+  }
+  .dates{margin-top:12px;font-size:14px;letter-spacing:.15em;}
+
+  /* ===== 共通レイアウト ===== */
+  main{max-width:680px;margin:0 auto;padding:0 18px;}
+  .day{
+    background:var(--card);
+    border-radius:24px;
+    box-shadow:0 6px 20px rgba(232,132,155,.10);
+    padding:26px 24px 30px;
+    margin-top:34px;
+    border:1px solid #FBE6EB;
+  }
+  .day-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:6px;
+  }
+  .day-badge{
+    flex:none;
+    width:64px;height:64px;
+    border-radius:50%;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    font-family:'Kiwi Maru',serif;
+    color:#fff;
+    line-height:1.15;
+  }
+  .day-badge small{font-size:11px;font-weight:400;}
+  .day-badge span{font-size:20px;}
+  .d1 .day-badge{background:var(--sakura);}
+  .d2 .day-badge{background:var(--leaf);}
+  .d3 .day-badge{background:var(--lavender);}
+  .d4 .day-badge{background:#F2C28B;}
+  .day-title{
+    font-family:'Kiwi Maru',serif;
+    font-size:19px;
+    font-weight:500;
+  }
+  .day-sub{font-size:13px;color:#A78B98;}
+
+  /* タイムライン */
+  ul.timeline{
+    list-style:none;
+    margin-top:18px;
+    position:relative;
+    padding-left:30px;
+  }
+  ul.timeline::before{
+    content:"";
+    position:absolute;
+    left:9px;top:8px;bottom:8px;
+    width:2px;
+    background:repeating-linear-gradient(to bottom,var(--sakura) 0 6px,transparent 6px 12px);
+  }
+  ul.timeline li{
+    position:relative;
+    padding:8px 0 8px 4px;
+  }
+  ul.timeline li::before{
+    content:"♡";
+    position:absolute;
+    left:-29px;top:9px;
+    font-size:14px;
+    color:var(--sakura-deep);
+    background:var(--card);
+    line-height:1;
+  }
+  .time{
+    display:inline-block;
+    background:var(--lavender-soft);
+    color:#7A66A3;
+    border-radius:8px;
+    font-size:12px;
+    padding:1px 8px;
+    margin-right:6px;
+    font-weight:700;
+  }
+  .note{font-size:13px;color:#A78B98;}
+  .booked{
+    display:inline-block;
+    background:#FDEBEF;
+    color:var(--sakura-deep);
+    border-radius:8px;
+    font-size:12px;
+    padding:1px 8px;
+    margin-left:4px;
+    font-weight:700;
+  }
+
+  /* リンクボタン */
+  a.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:12px;
+    text-decoration:none;
+    border-radius:999px;
+    padding:3px 12px;
+    margin:2px 4px 0 0;
+    font-weight:700;
+    transition:transform .15s ease;
+  }
+  a.btn:hover{transform:translateY(-2px);}
+  a.map{background:#EAF4EC;color:#5E8A65;}
+  a.ikyu{background:#FDEBEF;color:var(--sakura-deep);}
+
+  /* お宿カード */
+  .stay{
+    margin-top:16px;
+    background:linear-gradient(135deg,#FFF4F7,#F6F1FC);
+    border-radius:16px;
+    padding:14px 16px;
+    border:1px solid #F3DCE4;
+  }
+  .stay .label{
+    font-size:11px;
+    letter-spacing:.25em;
+    color:var(--sakura-deep);
+    font-weight:700;
+  }
+  .stay .name{
+    font-family:'Kiwi Maru',serif;
+    font-size:16px;
+    margin:2px 0 4px;
+  }
+  .stay .meal{font-size:12px;color:#A78B98;}
+
+  footer{
+    text-align:center;
+    margin-top:48px;
+    font-family:'Kiwi Maru',serif;
+    color:var(--sakura-deep);
+    font-size:15px;
+  }
+  /* ===== シマエナガ ===== */
+  .ena{display:inline-block;vertical-align:middle;}
+  .couple{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:2px;
+    margin-bottom:4px;
+  }
+  .couple .ena{width:74px;height:74px;}
+  .couple .ena.flip{transform:scaleX(-1);}
+  .couple .mini-heart{
+    font-size:20px;
+    color:var(--sakura-deep);
+    margin:0 -4px 26px;
+  }
+  .day{position:relative;}
+  .peek{
+    position:absolute;
+    top:-26px;
+    right:22px;
+    width:48px;height:48px;
+    transform:rotate(8deg);
+  }
+  footer .ena{width:58px;height:58px;display:block;margin:0 auto 6px;}
+  @media (prefers-reduced-motion:no-preference){
+    .couple .ena{animation:bounce 2.6s ease-in-out infinite;}
+    .couple .ena.flip{animation:bounceFlip 2.6s ease-in-out infinite;animation-delay:.4s;}
+    @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+    @keyframes bounceFlip{0%,100%{transform:scaleX(-1) translateY(0);}50%{transform:scaleX(-1) translateY(-5px);}}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .day{animation:pop .5s ease both;}
+    @keyframes pop{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  }
+</style>
+</head>
+<body>
+
+<!-- シマエナガのSVG定義 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="enaga">
+      <!-- しっぽ -->
+      <ellipse cx="86" cy="96" rx="7" ry="24" fill="#4A3F45" transform="rotate(-38 86 96)"/>
+      <!-- まるい体 -->
+      <circle cx="60" cy="60" r="42" fill="#FFFFFF" stroke="#F0E2E8" stroke-width="2.5"/>
+      <!-- 羽 -->
+      <ellipse cx="26" cy="70" rx="11" ry="17" fill="#D8C7B6" transform="rotate(22 26 70)"/>
+      <ellipse cx="94" cy="70" rx="11" ry="17" fill="#D8C7B6" transform="rotate(-22 94 70)"/>
+      <!-- 目 -->
+      <circle cx="47" cy="55" r="4.5" fill="#2E2228"/>
+      <circle cx="73" cy="55" r="4.5" fill="#2E2228"/>
+      <circle cx="48.5" cy="53.5" r="1.4" fill="#FFFFFF"/>
+      <circle cx="74.5" cy="53.5" r="1.4" fill="#FFFFFF"/>
+      <!-- くちばし -->
+      <path d="M57 62 L63 62 L60 67 Z" fill="#2E2228"/>
+      <!-- ほっぺ -->
+      <circle cx="40" cy="66" r="5.5" fill="#F8B9C5" opacity="0.65"/>
+      <circle cx="80" cy="66" r="5.5" fill="#F8B9C5" opacity="0.65"/>
+    </g>
+  </defs>
+</svg>
+
+<header>
+  <p class="eyebrow">HONEYMOON TRIP</p>
+  <h1>北海道新婚旅行 <span class="heart">♡</span></h1>
+  <div class="couple">
+    <svg class="ena" viewBox="0 0 120 120"><use href="#enaga"/></svg>
+    <span class="mini-heart">♡</span>
+    <svg class="ena flip" viewBox="0 0 120 120"><use href="#enaga"/></svg>
+  </div>
+  <div class="names">akari to masato</div>
+  <p class="dates">2026.6.15 mon − 6.18 thu ／ 3泊4日</p>
+</header>
+
+<main>
+
+  <!-- DAY 1 -->
+  <section class="day d1">
+    <svg class="peek" viewBox="0 0 120 120" aria-hidden="true"><use href="#enaga"/></svg>
+    <div class="day-head">
+      <div class="day-badge"><small>DAY</small><span>1</span></div>
+      <div>
+        <div class="day-title">6/15（月）東京 → 札幌</div>
+        <div class="day-sub">出発の日✈ 支笏湖の森でひとやすみ</div>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">9:45→11:35</span>東京 NRT → 新千歳空港 <span class="note">（9:05頃には成田着！）</span><br>
+        <a class="btn map" href="https://www.google.com/maps/dir/?api=1&destination=%E6%88%90%E7%94%B0%E5%9B%BD%E9%9A%9B%E7%A9%BA%E6%B8%AF&travelmode=transit" target="_blank">🚃 成田空港への経路</a>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8D%83%E6%AD%B3%E7%A9%BA%E6%B8%AF" target="_blank">📍 新千歳空港</a>
+      </li>
+      <li>ランチ：スープカリー GARAKU or らっきょ <span class="note">（新千歳空港内）</span></li>
+      <li><span class="time">14:30</span>The Bird Watching Cafe<span class="booked">予約済♡</span>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=The%20Bird%20Watching%20Cafe%20%E5%8D%83%E6%AD%B3" target="_blank">📍 MAP</a>
+      </li>
+      <li><span class="time">16:03発</span>バス（空4 支笏湖線）烏柵舞橋 → <span class="time">16:23着</span>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E7%83%8F%E6%9F%B5%E8%88%9E%E6%A9%8B%20%E3%83%90%E3%82%B9%E5%81%9C" target="_blank">📍 烏柵舞橋</a>
+      </li>
+      <li><span class="time">16:37発</span>千歳駅前 → 快速エアポート → <span class="time">17:08着</span>札幌駅</li>
+      <li>夕食：鮨 銀座 一（札幌）
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E9%AE%A8%20%E9%8A%80%E5%BA%A7%20%E4%B8%80%20%E6%9C%AD%E5%B9%8C" target="_blank">📍 MAP</a>
+        <a class="btn ikyu" href="https://restaurant.ikyu.com/148304/" target="_blank">🍣 一休で見る</a>
+      </li>
+    </ul>
+    <div class="stay">
+      <div class="label">STAY ♨</div>
+      <div class="name">ONSEN RYOKAN 由縁 札幌</div>
+      <div class="meal">朝食付き</div>
+      <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=ONSEN%20RYOKAN%20%E7%94%B1%E7%B8%81%20%E6%9C%AD%E5%B9%8C" target="_blank">📍 MAP</a>
+      <a class="btn ikyu" href="https://www.ikyu.com/00002839/" target="_blank">🏨 一休で見る</a>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <section class="day d2">
+    <svg class="peek" viewBox="0 0 120 120" aria-hidden="true" style="transform:rotate(-8deg)"><use href="#enaga"/></svg>
+    <div class="day-head">
+      <div class="day-badge"><small>DAY</small><span>2</span></div>
+      <div>
+        <div class="day-title">6/16（火）札幌 → 旭川 → 富良野</div>
+        <div class="day-sub">動物園とラベンダーの一日🐧💜</div>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">11:00</span>オリックスレンタカー札幌駅前店で出発🚗
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AA%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B9%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%E6%9C%AD%E5%B9%8C%E9%A7%85%E5%89%8D%E5%BA%97" target="_blank">📍 MAP</a>
+      </li>
+      <li>札幌駅 → 途中SAでごはん 🍙</li>
+      <li>旭山動物園（2時間）
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E6%97%AD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92" target="_blank">📍 MAP</a>
+      </li>
+      <li>ファーム富田（1時間）
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E5%AF%8C%E7%94%B0" target="_blank">📍 MAP</a>
+      </li>
+      <li>ファーム富田 → ホテル <span class="note">（すぐ）</span></li>
+    </ul>
+    <div class="stay">
+      <div class="label">STAY ♨</div>
+      <div class="name">富良野リゾート オリカ</div>
+      <div class="meal">夕朝食付き</div>
+      <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E8%89%AF%E9%87%8E%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E3%82%AA%E3%83%AA%E3%82%AB" target="_blank">📍 MAP</a>
+      <a class="btn ikyu" href="https://www.ikyu.com/00001382/" target="_blank">🏨 一休で見る</a>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <section class="day d3">
+    <svg class="peek" viewBox="0 0 120 120" aria-hidden="true"><use href="#enaga"/></svg>
+    <div class="day-head">
+      <div class="day-badge"><small>DAY</small><span>3</span></div>
+      <div>
+        <div class="day-title">6/17（水）富良野 → ニセコ</div>
+        <div class="day-sub">森のさんぽとチーズ、憧れのお宿へ🧀</div>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li>ニングルテラス 🌲
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E3%83%8B%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%86%E3%83%A9%E3%82%B9" target="_blank">📍 MAP</a>
+      </li>
+      <li>富良野チーズ工房 <span class="note">（すぐ）</span>＆ここで昼ごはん
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E8%89%AF%E9%87%8E%E3%83%81%E3%83%BC%E3%82%BA%E5%B7%A5%E6%88%BF" target="_blank">📍 MAP</a>
+      </li>
+      <li>富良野 → ホテル <span class="note">（約3時間ドライブ）</span></li>
+    </ul>
+    <div class="stay">
+      <div class="label">STAY ♨</div>
+      <div class="name">パーク ハイアット ニセコ HANAZONO</div>
+      <div class="meal">夕朝食付き</div>
+      <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%BC%E3%82%AF%E3%83%8F%E3%82%A4%E3%82%A2%E3%83%83%E3%83%88%E3%83%8B%E3%82%BB%E3%82%B3HANAZONO" target="_blank">📍 MAP</a>
+      <a class="btn ikyu" href="https://www.ikyu.com/00002706/" target="_blank">🏨 一休で見る</a>
+    </div>
+  </section>
+
+  <!-- DAY 4 -->
+  <section class="day d4">
+    <svg class="peek" viewBox="0 0 120 120" aria-hidden="true" style="transform:rotate(-8deg)"><use href="#enaga"/></svg>
+    <div class="day-head">
+      <div class="day-badge"><small>DAY</small><span>4</span></div>
+      <div>
+        <div class="day-title">6/18（木）ニセコ → 東京</div>
+        <div class="day-sub">最終日も思い出いっぱいで帰ろう🌷</div>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">12:00</span>森のpicnic<span class="booked">予約済♡</span>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=%E6%A3%AE%E3%81%AEpicnic%20%E3%83%8B%E3%82%BB%E3%82%B3" target="_blank">📍 MAP</a>
+      </li>
+      <li>パーク ハイアット ニセコ HANAZONO → 新千歳空港 <span class="note">（約2時間）</span></li>
+      <li><span class="time">17:40→19:20</span>新千歳空港 → 東京 NRT ✈</li>
+    </ul>
+  </section>
+
+  <footer>
+    <svg class="ena" viewBox="0 0 120 120" aria-hidden="true"><use href="#enaga"/></svg>
+    いってらっしゃい、すてきな旅になりますように ♡
+  </footer>
+
+</main>
+</body>
+</html>
